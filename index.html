@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>15-213/18-213: Introduction to Computer Systems</TITLE>
+</HEAD>
+<BODY MARGINWIDTH=0 MARGINHEIGHT=0>
+	<style type='text/css'>
+		.answer{
+			width:50%;
+			text-indent:10px;
+			margin-top:0px;
+			padding-top:0px;
+		}
+		.list{
+			margin-top:-20px;
+			padding-top:-20px;
+		}
+	</style>
+
+<H1>15-213/18-213: Introduction to Computer Systems</H1>
+
+
+<ul>
+
+
+<h2><font color=red>General Programming Issues</font></h2>
+
+    <li>
+        <b>When I try to run an executable file included in a lab handout, I get a "Permission denied" error.  What should I do?</b>
+        <p class='answer'>
+            <ul class='list'>
+                <li>The executable bit is not set.  You have two options:
+		  <ul>
+		    <li>Reextract the files from the tarball (preferred).
+		    <li>Run &ldquo;<kbd>chmod +x &#060;filename&#062;</kbd>&rdquo; to set the executable bit (risky&mdash;the file itself may be corrupted).
+		  </ul>
+                <li>This problem may occur if you extract the handout tarball on a Windows machine.  Always extract the handout on a Linux machine.
+            </ul>
+        </p>
+    </li>
+
+	<li>
+        <b>How do I extract a tarball on a Linux machine?</b>
+        <p class='answer'>
+            <ul class='list'>
+                <li>Run &ldquo;<kbd>tar -xvf &#060;filename&#062;</kbd>&rdquo; to extract it.
+            </ul>
+        </p>
+    </li>
+
+
+    <li>
+        <b>How do I avoid mixing tabs and spaces in my code?</b>
+        <p class='answer'>
+            <ul class='list'>
+                <li> If using vim, add the following to your ~/.vimrc:
+<pre>
+set expandtab
+set tabstop=4
+set shiftwidth=4
+</pre>
+            </ul>
+        </p>
+    </li>
+    <li>
+        <b>How do I make sure I don't have any non-ASCII characters in my code?</b>
+        <p class='answer'>
+            <ul class='list'>
+                <li> Look at your code on autolab -- it will complain if you have non-ASCII characters.
+                <li> Run &ldquo;<kbd>file mycode.c</kbd>&rdquo; You should expect to see: &ldquo;ASCII C program text&rdquo;.
+            </ul>
+        </p>
+    </li>
+    <li>
+        <b>My code has non-ASCII characters, how do I find where they are?</b>
+        <p class='answer'>
+            <ul class='list'>
+                <li> Try grepping for UTF-8 (common) characters in your code as follows:
+<pre>
+grep --color='auto' -P -n "[\x80-\xFF]" mycode.c
+</pre>
+            </ul>
+        </p>
+    </li>
+
+
+<h2><font color=red>General Course Issues</font></h2>
+
+    <li>
+        <b>Why can't I access Autolab?</b>
+        <p class='answer'>
+            <ul class='list'>
+                <li>Did you recently join the course?  It is possible you do not yet have an account.
+                <!--<li>Email the staff list 15-213-staff@cs.cmu.edu if
+                you need an account created for you.-->
+                <li>Otherwise, or if the issue persists, post on <a href="external/piazza">Piazza</a>.
+            </ul>
+        </p>
+    </li>
+
+    <li>
+        <b>Why can't I access the shark machines?</b>
+        <p class='answer'>
+            <ul class='list'>
+                <!--<li>You should be able to access the shark machines with your Andrew credentials. Email the staff list 15-213-staff@cs.cmu.edu if you have trouble.-->
+                <li>You should be able to access the shark machines with your Andrew credentials. Post on <a href="external/piazza">Piazza</a> if you have trouble.
+            </ul>
+        </p>
+    </li>
+
+    <li>
+        <b>Must I work on the shark machines?</b>
+        <p class='answer'>
+            <ul class='list'>
+                <li>Your work will be graded on the shark machines, so it is in your best interest to work there.
+                <li>For most labs, you may alternatively work on the Andrew Unix machines, which are nearly identical.
+                <li>You <em>must</em> complete bomblab and buflab on a shark machine.
+            </ul>
+        </p>
+    </li>
+
+    <li>
+        <b>I have trouble working on the shark machines because I'm uncomfortable using the shell or available editors.</b>
+        <p class='answer'>
+            <ul class='list'>
+		<li>Consider attending the Linux Boot Camp at the beginning of the semester.</li>
+                <li>Consult the quick-reference sheets posted on the <a href="resources.html">Resources page</a>.</li>
+            </ul>
+        </p>
+    </li>
+
+    <li>
+        <b>Should I read the lab writeup before seeking help?</b>
+        <p class='answer'>
+            <ul class='list'>
+                <li>Yes.
+                <li>Did we say, "Yes"?
+                <li>Yes, we did.
+                <li>Please read the lab writeups.
+                <li>:-)
+            </ul>
+        </p>
+    </li>
+
+    <li>
+        <b>How can I get help?</b>
+        <p class='answer'>
+            <ul class='list'>
+                <li>Post questions on <a href='external/piazza'>Piazza</a> (for assignments and exams).
+                <!--<li>Email us at <a href='mailto:15-213-staff@cs.cmu.edu'>15-213-staff@cs.cmu.edu</a> (for logistical issues).-->
+                <li>Stop by during office hours.
+                <li>Email the instructors directly (for logistical issues such as personal emergencies).
+                <li>Schedule a 1:1 meeting with your instructors or TAs.
+            </ul>
+        </p>
+    </li>
+
+    <li>
+        <b>Must I attend a particular recitation?</b>
+        <p class='answer'>
+            <ul class='list'>
+                <li>You may attend any recitation you wish as long as the instructor leading the recitation allows it.
+                <li>Please make sure the recitation you normally attend is the one specified on your Autolab account; if this is not the case, email the staff list.
+            </ul>
+        </p>
+    </li>
+
+   <li>
+        <b>I am working from a Windows machine. How do I connect to the Shark machines?</b>
+        <p class='answer'>
+            <ul class='list'>
+                <li>Use the Cisco VPN client if you are off-campus: <A HREF="https://www.cmu.edu/computing/software/all/cisco-anyconnect/index.html">Cisco VPN client</A>. There is a known issue with connection stability if you do not use the VPN client: your connection will randomly freeze or drop.
+                <li>Use the CMU recommended Windows SSH/SFTP client: <A HREF="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Tectia SSH/SFTP </A>. If you need a lightweight SSH client you can use PuTTY instead: <A HREF="https://www.cmu.edu/computing/software/all/tectia/index.html">PuTTY</A>
+                <li>Avoid X-Windows (X-Term, XEmacs etc.) and the WIndows AFS client if you do not have experience with them. Instead open multiple Tectia SSH/SCP windows and use text-based editors on the Shark machine (<kbd>emacs</kbd>, <kbd>vim</kbd> or <kbd>nano</kbd>).
+                <li>There are other nice tools like a Windows AFS client (<A HREF="http://www.openafs.org/windows.html">OpenAFS</A>), X-Windows support (<A HREF="https://www.cmu.edu/computing/software/all/xwin/index.html">X-Win 32</A>) and the Linux-on-Windows port (<A HREF="https://cygwin.com/"><kbd>cygwin</kbd></A>. They are powerful tools in the hands of experts but often very painful to set up and can be the source of a lot of frustration and painful data loss when not used well. If you have no experience with them, leave the finger from them.
+            </ul>
+        </p>
+    </li>
+
+    <li>
+        <b>I have some command line output that I'd like to send to the staff. Should I send it as a screenshot? </b>
+        <p class='answer'>
+            <ul class='list'>
+                <li> No. Text (copy and paste) is fine.
+            </ul>
+        </p>
+    </li>
+
+    <li>
+        <b>My editor shows me that my C code looks fine, but when my TA prints it out it looks different!</b>
+        <p class='answer'>
+            <ul class='list'>
+                <li> Your editor is configured to use tabs as a certain width. Please use spaces instead of tabs.
+                <li> To see what we'll see when we grade your submissions: run <pre>a2ps -s2  --pretty-print --landscape --columns=2 --rows=1 --tabsize=4 --chars-per-line=80 somefile.c -o someotherfile.ps</pre>
+                <li> To replace all tabs with spaces, run <pre>expand -t4 file > otherfile </pre>
+            </ul>
+        </p>
+    </li>
+
+</ul>
+
+</ul>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>
