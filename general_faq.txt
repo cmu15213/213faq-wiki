@@ -1,0 +1,77 @@
+T: General Programming Issues
+
+Q: When I try to run an executable file included in a lab handout, I get a "Permission denied" error. What should I do?
+A: The executable bit is not set. You have two options: \\
+<li> Reextract the files from the tarball (preferred). \\
+<li> Run “chmod +x <filename>” to set the executable bit (risky—the file itself may be corrupted). \\
+This problem may occur if you extract the handout tarball on a Windows machine. Always extract the handout on a Linux machine.
+
+Q: How do I extract a tarball on a Linux machine?
+A: Run “tar -xvf <filename>” to extract it.
+
+Q: How do I avoid mixing tabs and spaces in my code?
+A: If using vim, add the following to your ~/.vimrc:\\
+set expandtab \\
+set tabstop=4 \\ 
+set shiftwidth=4
+
+Q: How do I make sure I don't have any non-ASCII characters in my code?
+A: Look at your code on autolab -- it will complain if you have non-ASCII characters. \\
+Run “file mycode.c” You should expect to see: “ASCII C program text”.
+
+Q: My code has non-ASCII characters, how do I find where they are?
+A: Try grepping for UTF-8 (common) characters in your code as follows: \\
+grep --color='auto' -P -n "[\x80-\xFF]" mycode.c
+
+T: General Course Issues
+
+Q: Why can't I access Autolab?
+A: Did you recently join the course? It is possible you do not yet have an account. \\
+Otherwise, or if the issue persists, post on <a href="https://www.cs.cmu.edu/~213/external/piazza">Piazza</a>.
+
+Q: Why can't I access the shark machines?
+A: You should be able to access the shark machines with your Andrew credentials. Post on <a href="https://www.cs.cmu.edu/~213/external/piazza">Piazza</a> if you have trouble.
+
+Q: Must I work on the shark machines?
+A: Your work will be graded on the shark machines, so it is in your best interest to work there. \\
+For most labs, you may alternatively work on the Andrew Unix machines, which are nearly identical. \\
+You must complete bomblab and buflab on a shark machine.
+
+Q: I have trouble working on the shark machines because I'm uncomfortable using the shell or available editors.
+A: Consider attending the Linux Boot Camp at the beginning of the semester. \\
+Consult the quick-reference sheets posted on the Resources page.
+
+Q: Should I read the lab writeup before seeking help?
+A: Yes. \\
+Did we say, "Yes"? \\
+Yes, we did. \\
+Please read the lab writeups. \\
+:-)
+
+Q: How can I get help?
+A: Post questions on <a href="https://www.cs.cmu.edu/~213/external/piazza">Piazza</a> (for assignments and exams). \\
+Stop by during office hours. \\
+Email the instructors directly (for logistical issues such as personal emergencies). \\
+Schedule a 1:1 meeting with your instructors or TAs.
+
+Q: Must I attend a particular recitation?
+A: You may attend any recitation you wish as long as the instructor leading the recitation allows it. \\
+Please make sure the recitation you normally attend is the one specified on your Autolab account; if this is not the case, email the staff list.
+
+Q: I am working from a Windows machine. How do I connect to the Shark machines?
+A: Use the Cisco VPN client if you are off-campus: Cisco VPN client. There is a known issue with connection stability if you do not use the VPN client: your connection will randomly freeze or drop. \\
+Use the CMU recommended Windows SSH/SFTP client: Tectia SSH/SFTP . If you need a lightweight SSH client you can use PuTTY instead: PuTTY \\
+Avoid X-Windows (X-Term, XEmacs etc.) and the WIndows AFS client if you do not have experience with them. Instead open multiple Tectia SSH/SCP windows and use text-based editors on the Shark machine (emacs, vim or nano). \\
+There are other nice tools like a Windows AFS client (OpenAFS), X-Windows support (X-Win 32) and the Linux-on-Windows port (cygwin. They are powerful tools in the hands of experts but often very painful to set up and can be the source of a lot of frustration and painful data loss when not used well. If you have no experience with them, leave the finger from them.
+
+Q: I have some command line output that I'd like to send to the staff. Should I send it as a screenshot?
+A: No. Text (copy and paste) is fine.
+
+Q: My editor shows me that my C code looks fine, but when my TA prints it out it looks different!
+A: Your editor is configured to use tabs as a certain width. Please use spaces instead of tabs.\\
+To see what we'll see when we grade your submissions: run \\
+\\
+a2ps -s2  --pretty-print --landscape --columns=2 --rows=1 --tabsize=4 --chars-per-line=80 somefile.c -o someotherfile.ps \\
+\\
+To replace all tabs with spaces, run <br><br> expand -t4 file > otherfile 
+

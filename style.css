@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400&display=swap');
+
+
+body {
+    background-color: #ededed;
+    margin: 0px;
+    font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #333;
+}
+
+a {
+    color: red;
+}
+
+a:visited {
+    color: red;
+}
+
+.side-menu {
+    width: 150px;
+    margin-left: 20px;
+    margin-top: 20px;
+    position: fixed;
+}
+
+.menu-element {
+    border: 0px rgba(0,0,0,0.0) solid;
+    border-bottom-width: 2px;
+    display: inline-block;
+    margin-right: 200px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-family: 'Titillium Web', Georgia, serif;
+}
+
+.menu-element:hover {
+    border-color: #f06290;
+    padding-left: 10px;
+    transition: all 0.25s ease;
+}
+
+
+.main-body {
+    width: 900px;
+    min-height: 100vh;
+    margin-left: calc(50% - 450px);
+    background-color: white;
+}
+
+.main-title {
+    padding: 20px;
+    background-color: #009687;
+    color: white;
+    font-size: 20px;
+    font-family: 'Titillium Web', Georgia, serif;
+}
+
+.content {
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #009688;
+    font-size: 30px;
+    font-family: 'Titillium Web', Georgia, serif;
+}
+
+.closeAll {
+    font-size: 15px;
+    display: inline-block;
+    border: 0px #f06290 solid;
+    border-bottom-width: 2px;
+    border-top-width: 2px;
+    margin-left: 20px;
+    margin-top: 10px;
+    max-width: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.closeAll:hover {
+    background-color: #f2dce4;
+}
+
+.closeAllActive {
+    max-width: 300px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.question {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+    cursor: pointer !important;
+}
+
+.question:hover {
+    background-color: #daedeb;
+    transition: all 0.25s ease;
+}
+
+
+.answer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: calc(100% - 40px);
+    border: 0.5px #f06290 solid;
+    border-bottom-width: 0.5px;
+    background-color: #f2dce4;
+    max-height: 0px;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.active {
+    padding: 10px;
+    max-height: 1000px;
+    border-width: 1px;
+    border-bottom-width: 3px;
+}
+
+
+
+@media (max-width: 900px){
+
+    .main-body {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .side-menu {
+        margin: 0px;
+        min-height: 100vh;
+        color: white;
+        max-width: 0px;
+        overflow: hidden;
+        background-color: #009687;
+        transition: all 0.5s ease;
+    }
+
+    .side-menu-active {
+        padding-top: 20px;
+        padding-left: 20px;
+        max-width: 100vh;
+        transition: max-width 0.5s ease-in;
+    }
+
+    .menu-element:hover {
+    border-color: white;
+}
+
+}

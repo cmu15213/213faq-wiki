@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>15213/513 | General FAQ</title>                           <!-- Give Title -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">  <!-- Insert StyleSheet -->
+    <link rel="icon" href="cool-icon.png">                    <!-- Insert Icon -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<div class=side-menu>
+		<div class=menu-element>General</div>
+		<div class=menu-element>CLab</div>
+		<div class=menu-element>DataLab</div>
+		<div class=menu-element>BombLab</div>
+		<div class=menu-element>AttackLab</div>
+		<div class=menu-element>CacheLab</div>
+		<div class=menu-element>MallocLab</div>
+		<div class=menu-element>ShellLab</div>
+		<div class=menu-element>ProxyLab</div>
+		<div class=menu-element>ParallelLab</div>
+	</div>
+
+    <div class=main-body>
+    	<div class=main-title> 15-213/18-213: Introduction to Computer Systems | General FAQ </div>
+
+    	<div class=closeAll>close all</div>
+    	<div class=content id=contentID>
+
+	    </div>
+
+    </div>
+
+
+    <script>
+
+    	$(document).ready(function() {
+
+    		var qID = 0;
+    		var numActive = 0;
+
+    		$.get('general_faq.txt', function(data) {
+			   var lines = data.split("\n");
+			   for(var i = 0; i < lines.length; i++) {
+			   		var line = lines[i]
+			   		line = line.trim()
+			   		var type = line.slice(0,2);
+			   		var content = line.substr(line.indexOf(" "));
+
+			   		var nextLine = (line.slice(-2, line.length) == "\\\\");
+			   		if(nextLine) {
+			   			content = content.slice(0, -2);
+
+			   		}
+
+
+			   		while(nextLine) {
+			   			i++
+			   			line = lines[i]
+			   			line = line.trim()
+			   			var nextContent = line
+		   				content += "<br>"; 
+
+			   			nextLine = (line.substr(line.length-2) == "\\\\");
+			   			if(nextLine) {
+			   				nextContent = nextContent.slice(0, -2);
+			   			}
+
+		   				content += nextContent
+
+			   		} 
+			   		
+
+
+			   		if(type == "T:"){
+					    $("#contentID").append("<div class=title>" + content + "</div>");
+			   		}
+
+			   		if(type == "Q:"){
+			   			qID++;
+					    $("#contentID").append("<div class=question id=q" + qID + ">" + content + "</div>");
+					    
+			   		}
+
+			   		else if(type == "A:") {
+					    $("#contentID").append("<div class=answer id=a" + qID + ">" + content + "</div>");
+			   		}
+
+			   }
+
+
+
+			   $(".question").click(function() {
+			    	var id = $(this).attr('id');
+			    	id = id.slice(1,id.length);
+			    	if($("#a"+id).hasClass('active')) {
+			    		$("#a"+id).removeClass('active')
+			    		numActive--;
+			    		if(numActive == 0) {
+			    			$(".closeAll").removeClass('closeAllActive');
+			    		}
+			    	}
+			    	else {
+			    		$("#a"+id).addClass('active');
+			    		if(numActive == 0) {
+			    			$(".closeAll").addClass('closeAllActive');
+			    		}
+			    		numActive++;
+			    	}
+			    })
+
+			   $(".closeAll").click(function() {
+			    	$(".answer").removeClass('active')
+			    	$(".closeAll").removeClass('closeAllActive');
+					numActive = 0;
+			    })
+
+			});
+		}); 
+
+
+
+	   $(".main-title").click(function() {
+	    	if($(".side-menu").hasClass('side-menu-active')) 
+	    		$(".side-menu").removeClass('side-menu-active');
+	    	else
+	    		$(".side-menu").addClass('side-menu-active');
+	    })
+
+
+	    
+	</script>
+
+</body>
+</html>
